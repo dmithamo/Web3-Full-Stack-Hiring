@@ -19,6 +19,11 @@ module.exports = {
     'import/extensions': 'off',
     'no-use-before-define': 'off',
     'import/no-unresolved': 'off',
+    'object-curly-newline': 'off',
   },
-  ignorePatterns: ['reportWebVitals.ts', 'react-app-env.d.ts', '**/reference/**'],
+  ignorePatterns: [
+    'reportWebVitals.ts',
+    'react-app-env.d.ts',
+    '**/reference/**',
+  ],
 };
