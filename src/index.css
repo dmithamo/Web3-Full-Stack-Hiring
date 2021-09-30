@@ -1,0 +1,37 @@
+@font-face {
+  font-family: "JetBrainsMono-Regular";
+  src: url("./assets/fonts/JetBrainsMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: "JetBrainsMono-Light";
+  src: url("./assets/fonts/JetBrainsMono-Light.ttf");
+}
+
+@font-face {
+  font-family: "JetBrainsMono-Bold";
+  src: url("./assets/fonts/JetBrainsMono-Bold.ttf");
+}
+
+@font-face {
+  font-family: "JetBrainsMono-Thin";
+  src: url("./assets/fonts/JetBrainsMono-Thin.ttf");
+}
+
+:root {
+  --primaryFont: "JetBrainsMono-Regular";
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  font-family: var(--primaryFont);
+  background-color: #fbfbfc;
+}
+
+* {
+  box-sizing: border-box !important;
+}

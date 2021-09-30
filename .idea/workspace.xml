@@ -4,56 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d82bfe44-8e85-4c87-be9b-e6ff0bb7860a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Routes.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/JetBrainsMono-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/JetBrainsMono-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/JetBrainsMono-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/fonts/JetBrainsMono-Thin.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Logo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Nav.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Searchbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Homepage.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reportWebVitals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/web3-client/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Web3-Full-Stack-Hiring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Web3-Full-Stack-Hiring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/assets/fonts/JetBrainsMono-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/assets/fonts/JetBrainsMono-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/assets/fonts/JetBrainsMono-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/assets/fonts/JetBrainsMono-Thin.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/react-app-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/tsconfig.json" beforeDir="false" />
-    </list>
+    <list default="true" id="d82bfe44-8e85-4c87-be9b-e6ff0bb7860a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,6 +65,9 @@
       </RecentBranches>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/reportWebVitals.ts" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="1yr5gF4KHK9HHoeiV73XPTTQ3IF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -137,8 +91,9 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/app/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -177,6 +132,7 @@
       <workItem from="1632996978901" duration="117000" />
       <workItem from="1632997115349" duration="6954000" />
       <workItem from="1633006913015" duration="308000" />
+      <workItem from="1633008610187" duration="1069000" />
     </task>
     <servers />
   </component>
