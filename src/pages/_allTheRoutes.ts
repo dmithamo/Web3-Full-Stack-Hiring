@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import SearchAddress from './SearchAddress';
+import Homepage from './Homepage';
 import DefaultLayout from '../components/DefaultLayout';
 import NotFoundPage from './NotFoundPage';
 
@@ -14,7 +14,7 @@ const ALL_ROUTES: Route[] = [
   {
     name: 'Home',
     path: '/',
-    component: SearchAddress,
+    component: Homepage,
     layout: DefaultLayout,
   },
   {

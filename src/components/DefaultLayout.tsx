@@ -6,7 +6,7 @@ type Props = {
 };
 
 const DefaultLayout: FC<Props> = ({ children }: Props) => (
-  <div>
+  <div style={{ padding: '2rem' }}>
     <Nav />
     <div>{children}</div>
   </div>

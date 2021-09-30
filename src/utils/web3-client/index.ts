@@ -20,6 +20,14 @@ export const useGetBalance = (
   useEffect(() => {
     setIsFetching(true);
 
+    // defaults to prevent `invalid address` error before user types address
+    if (!address) {
+      setBalance(0);
+      setError(false);
+      setIsFetching(false);
+      return;
+    }
+
     try {
       client.eth
         .getBalance(address)
