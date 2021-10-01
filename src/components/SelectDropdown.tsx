@@ -23,6 +23,7 @@ const SelectDropdown: React.FC<Props> = ({
     <div className="flex justify">
       {selectLabel ? <span>{selectLabel}</span> : <></>}
       <select
+        className="p-2.5 outline-none rounded-md focus:ring-black focus:ring-2"
         id="currency"
         name="currency"
         value={selected}
