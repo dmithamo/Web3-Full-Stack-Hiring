@@ -1,1 +1,1 @@
-export type Currency = 'USD' | 'ETH' | 'DAI' | 'GBP' | 'EUR' | 'KES';
+export type Currency = 'USD' | 'ETH' | 'WEI' | 'GBP' | 'EUR' | 'KES';
