@@ -29,7 +29,9 @@ const SelectDropdown: React.FC<Props> = ({
         onChange={(e) => handleChange(e)}
       >
         {options.map(({ label, value }) => (
-          <option value={value}>{label}</option>
+          <option key={value} value={value}>
+            {label}
+          </option>
         ))}
       </select>
     </div>
