@@ -29,7 +29,16 @@ const Searchbar: React.FC<Props> = ({ query, onSearch }: Props) => {
   useKeyPress(handleSubmit, 'enter');
   useKeyPress(handleClear, 'escape');
 
-  return <input value={value} onChange={(e) => handleSearch(e)} />;
+  return (
+    <div>
+      <input
+        className="p-2"
+        placeholder="Type something and press the enter key"
+        value={value}
+        onChange={(e) => handleSearch(e)}
+      />
+    </div>
+  );
 };
 
 export default Searchbar;

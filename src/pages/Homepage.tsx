@@ -17,8 +17,12 @@ const Homepage: React.FC = () => {
       </p>
 
       <Searchbar query={query} onSearch={setQuery} />
-      {error ? <p style={{ color: 'red' }}>{error}</p> : <></>}
-      {isFetching ? <p style={{ color: 'grey' }}>Loading ...</p> : <></>}
+      {error ? (
+        <p className="font-thin text-sm text-red-500">{error}</p>
+      ) : (
+        <></>
+      )}
+      {isFetching ? <p className="text-gray-500">Loading ...</p> : <></>}
       {query && !error ? (
         <p>{convertEtherToUSD(convertWeiToEther(balance))}</p>
       ) : (

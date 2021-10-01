@@ -1,37 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
-  font-family: "JetBrainsMono-Regular";
-  src: url("./assets/fonts/JetBrainsMono-Regular.ttf");
+    font-family: "Lato-Regular";
+    src: url("./assets/fonts/Lato-Regular.ttf");
 }
 
 @font-face {
-  font-family: "JetBrainsMono-Light";
-  src: url("./assets/fonts/JetBrainsMono-Light.ttf");
+    font-family: "Lato-Light";
+    src: url("./assets/fonts/Lato-Light.ttf");
 }
 
 @font-face {
-  font-family: "JetBrainsMono-Bold";
-  src: url("./assets/fonts/JetBrainsMono-Bold.ttf");
+    font-family: "Lato-Bold";
+    src: url("./assets/fonts/Lato-Bold.ttf");
 }
 
 @font-face {
-  font-family: "JetBrainsMono-Thin";
-  src: url("./assets/fonts/JetBrainsMono-Thin.ttf");
+    font-family: "Lato-Thin";
+    src: url("./assets/fonts/Lato-Thin.ttf");
 }
 
 :root {
-  --primaryFont: "JetBrainsMono-Regular";
+    --primaryFont: "Lato-Regular";
 }
 
 body {
-  margin: 0;
-  width: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 14px;
-  font-family: var(--primaryFont);
-  background-color: #fbfbfc;
+    margin: 0;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+    font-family: var(--primaryFont);
+    background-color: #fbfbfc;
 }
 
 * {
-  box-sizing: border-box !important;
+    box-sizing: border-box !important;
 }
