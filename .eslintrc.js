@@ -20,6 +20,8 @@ module.exports = {
     'no-use-before-define': 'off',
     'import/no-unresolved': 'off',
     'object-curly-newline': 'off',
+    'import/prefer-default-export': 'off',
+    'implicit-arrow-linebreak': 'off',
   },
   ignorePatterns: [
     'reportWebVitals.ts',

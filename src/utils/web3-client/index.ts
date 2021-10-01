@@ -1,9 +1,15 @@
 import Web3 from 'web3';
 import { useEffect, useState } from 'react';
+import daiABI from '../reference/abi/dai';
 
 // initialize a We3JS client
-const client = new Web3(Web3.givenProvider || 'ws://localhost:8545');
-export default client;
+const daiContractAddress = '0x6b175474e89094c44da98b954eedeac495271d0f';
+const web3Client = new Web3(Web3.givenProvider || 'ws://localhost:8545');
+const daiContract = new web3Client.eth.Contract(
+  // @ts-ignore
+  daiABI,
+  daiContractAddress,
+);
 
 /**
  * @description abstract the logic for querying balance into a custom hook
@@ -20,7 +26,7 @@ export const useGetBalance = (
   useEffect(() => {
     setIsFetching(true);
 
-    // defaults to prevent `invalid address` error before user types address
+    // prevent `invalid address` error before user types address
     if (!address) {
       setBalance(0);
       setError(false);
@@ -29,9 +35,10 @@ export const useGetBalance = (
     }
 
     try {
-      client.eth
-        .getBalance(address)
-        .then((bal) => {
+      daiContract.methods
+        .balanceOf(address)
+        .call()
+        .then((bal: any) => {
           setBalance(Number(bal) || 0);
         })
         .finally(() => setIsFetching(false));
@@ -46,3 +53,5 @@ export const useGetBalance = (
 
   return { isFetching, balance, error };
 };
+
+export default web3Client;
