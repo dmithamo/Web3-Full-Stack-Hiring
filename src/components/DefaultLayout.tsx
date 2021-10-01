@@ -6,9 +6,11 @@ type Props = {
 };
 
 const DefaultLayout: FC<Props> = ({ children }: Props) => (
-  <div style={{ padding: '2rem' }}>
-    <Nav />
-    <div>{children}</div>
+  <div className="bg-gray-200 w-full h-full min-h-screen">
+    <div className="pl-10 pr-10 pt-5 pb-2 sm:w-full md:w-1/2 mx-auto">
+      <Nav />
+      <div className="pt-5">{children}</div>
+    </div>
   </div>
 );
 

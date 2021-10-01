@@ -9,25 +9,32 @@ const Homepage: React.FC = () => {
 
   return (
     <>
-      <p>Type a valid address and search to view the balance</p>
-      <p>
-        <>(Press&nbsp;</>
-        <kbd>ESC</kbd>
-        <>&nbsp;to clear)</>
-      </p>
-
       <Searchbar query={query} onSearch={setQuery} />
-      {error ? (
-        <p className="font-thin text-sm text-red-500">{error}</p>
-      ) : (
-        <></>
-      )}
-      {isFetching ? <p className="text-gray-500">Loading ...</p> : <></>}
-      {query && !error ? (
-        <p>{convertEtherToUSD(convertWeiToEther(balance))}</p>
-      ) : (
-        <></>
-      )}
+
+      <div className="pt-2 pb-2">
+        {isFetching ? <p className="text-gray-500">Loading ...</p> : <></>}
+
+        {error ? (
+          <p className="font-thin text-sm text-red-500">{error}</p>
+        ) : (
+          <>
+            {!balance ? (
+              <p className="text-sm pt-2 text-gray-500">
+                Type a valid address and search to view the balance. Press `ESC`
+                to clear
+              </p>
+            ) : (
+              <></>
+            )}
+          </>
+        )}
+
+        {query && !error ? (
+          <p>{convertEtherToUSD(convertWeiToEther(balance))}</p>
+        ) : (
+          <></>
+        )}
+      </div>
     </>
   );
 };
