@@ -30,7 +30,7 @@ const Searchbar: React.FC<Props> = ({ query, onSearch }: Props) => {
   useKeyPress(handleClear, 'escape');
 
   return (
-    <div className="bg-white p-2 flex justify-between shadow-sm focus-within:shadow-none rounded-md focus-within:ring-2 focus-within:ring-black">
+    <div className="bg-white p-2 flex align-middle justify-between shadow-sm focus-within:shadow-none rounded-md focus-within:ring-2 focus-within:ring-black">
       <input
         className="p-2 outline-none w-3/4"
         placeholder="Type something"
@@ -40,7 +40,7 @@ const Searchbar: React.FC<Props> = ({ query, onSearch }: Props) => {
       <button
         type="button"
         onClick={handleSubmit}
-        className="outline-none bg-black text-white p-2 pl-5 pr-5 rounded-md"
+        className="transform hover:scale-x-105 p-3 w-1/6 pl-5 pr-5 rounded-md outline-none bg-black text-white"
       >
         Search
       </button>

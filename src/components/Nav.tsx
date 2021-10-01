@@ -4,11 +4,13 @@ import ALL_ROUTES from '../pages/_allTheRoutes';
 
 const Nav: FC = () => (
   <nav>
-    {ALL_ROUTES.filter((r) => r.path !== '*').map(({ name, path }) => (
-      <NavLink strict to={path} key={path}>
-        {name}
-      </NavLink>
-    ))}
+    {ALL_ROUTES.filter((r) => !['*', '/'].includes(r.path.toLowerCase())).map(
+      ({ name, path }) => (
+        <NavLink className="mr-5" strict to={path} key={path}>
+          {name}
+        </NavLink>
+      ),
+    )}
   </nav>
 );
 
