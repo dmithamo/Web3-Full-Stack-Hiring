@@ -37,6 +37,7 @@ body {
     font-size: 14px;
     font-family: var(--primaryFont);
     background-color: #fbfbfc;
+    color: rgba(0, 0, 0, 0.75);
 }
 
 * {
