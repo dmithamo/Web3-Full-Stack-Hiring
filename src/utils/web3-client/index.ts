@@ -14,21 +14,21 @@ const daiContract = new web3Client.eth.Contract(
 /**
  * @description abstract the logic for querying balance into a custom hook
  * @param {string} address of target account on the Ethereum blockchain
- * @returns { isFetching: boolean; error: string | false; balance: number }
+ * @returns { isFetching: boolean; error: string | false; balance: string }
  */
 export const useGetBalance = (
   address: string,
-): { isFetching: boolean; error: string | false; balance: number } => {
+): { isFetching: boolean; error: string | false; balance: string } => {
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState<false | string>(false);
-  const [balance, setBalance] = useState<number>(0);
+  const [balance, setBalance] = useState<string>('');
 
   useEffect(() => {
     setIsFetching(true);
 
     // prevent `invalid address` error before user types address
     if (!address) {
-      setBalance(0);
+      setBalance('');
       setError(false);
       setIsFetching(false);
       return;
@@ -39,7 +39,7 @@ export const useGetBalance = (
         .balanceOf(address)
         .call()
         .then((bal: any) => {
-          setBalance(Number(bal) || 0);
+          setBalance(bal);
         })
         .finally(() => setIsFetching(false));
     } catch (err: any) {
@@ -53,5 +53,11 @@ export const useGetBalance = (
 
   return { isFetching, balance, error };
 };
+
+/**
+ *@description Convert wei to ether
+ * */
+export const convertWeiToEther = (weiAmount: string): number =>
+  Number(web3Client.utils.fromWei(weiAmount));
 
 export default web3Client;

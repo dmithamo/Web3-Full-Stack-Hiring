@@ -12,9 +12,8 @@ const Searchbar: React.FC<Props> = ({ query, onSearch }: Props) => {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
 
-    if (e.target.value === '') {
-      handleClear();
-    }
+    // reset value of query on change
+    onSearch('');
   };
 
   const handleSubmit = () => {
