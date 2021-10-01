@@ -8,12 +8,14 @@ import { Currency } from '../utils/reusedTypes';
 const Homepage: React.FC = () => {
   const [query, setQuery] = useState('');
   const [currency, setCurrency] = useState<Currency>('USD');
+
   const currencyOptions: { label: string; value: Currency }[] = [
     { label: 'United States Dollars', value: 'USD' },
     { label: 'Pound Sterling', value: 'GBP' },
     { label: 'Euro', value: 'EUR' },
     { label: 'Kenya Shillings', value: 'KES' },
   ];
+
   const { isFetching, error, balance } = useGetBalance(query);
 
   return (

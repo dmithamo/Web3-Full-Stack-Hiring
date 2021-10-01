@@ -6,12 +6,12 @@ import {
   convertWeiToKES,
   convertWeiToUSD,
 } from '../utils/formatNumbers';
-import daiIcon from '../assets/Badge_Dai.svg';
 import {
   USD_TO_EURO_RATE,
   USD_TO_GBP_RATE,
   USD_TO_KES_RATE,
 } from '../utils/constants';
+import { getWalletIcon } from '../utils/helpers';
 
 type Props = {
   balance: string; // in wei
@@ -45,16 +45,6 @@ const BalanceDisplay: FC<Props> = ({
     }
   };
 
-  const getWalletIcon = (): string => {
-    switch (walletName) {
-      case 'DAI':
-        return daiIcon;
-
-      default:
-        return '';
-    }
-  };
-
   const getConversionRate = (): number => {
     switch (displayCurrency) {
       case 'USD':
@@ -78,7 +68,7 @@ const BalanceDisplay: FC<Props> = ({
     <div className="relative border border-10 border-gray-300 p-5 flex flex-col justify-around align-baseline rounded-lg bg-white">
       <img
         className="h-10 absolute -top-5 left-5 rounded-lg mx-auto"
-        src={getWalletIcon()}
+        src={getWalletIcon(walletName)}
         alt={walletName}
       />
       <div className="flex justify-between align-middle">
