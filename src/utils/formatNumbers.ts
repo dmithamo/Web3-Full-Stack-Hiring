@@ -1,5 +1,5 @@
-import { convertWeiToEther } from './web3-client';
 import {
+  USD_TO_ETHER_RATE,
   USD_TO_EURO_RATE,
   USD_TO_GBP_RATE,
   USD_TO_KES_RATE,
@@ -8,43 +8,43 @@ import {
 // NOTE: ALL THESE CONVERSIONS ASSUME 1 USD === 1 ETHER
 
 /**
- * @description convert wei to USD
- * @param weiAmount
+ * @description convert ether to USD
+ * @param etherAmount
  * @return {string} amount in USD
  */
-export const convertWeiToUSD = (weiAmount: string): string =>
+export const convertEtherToUSD = (etherAmount: string): string =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(
-    convertWeiToEther(weiAmount),
+    Number(etherAmount) / USD_TO_ETHER_RATE,
   );
 
 /**
- * @description convert wei to Pound Sterling
- * @param weiAmount
+ * @description convert ether to Pound Sterling
+ * @param etherAmount
  * @return {string} amount in GBP
  */
-export const convertWeiToGBP = (weiAmount: string): string =>
+export const convertEtherToGBP = (etherAmount: string): string =>
   new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(
-    convertWeiToEther(weiAmount) * USD_TO_GBP_RATE,
+    (Number(etherAmount) / USD_TO_ETHER_RATE) * USD_TO_GBP_RATE,
   );
 
 /**
- * @description convert wei to Euro
- * @param weiAmount
+ * @description convert ether to Euro
+ * @param etherAmount
  * @return {string} amount in Euro
  */
-export const convertWeiToEuro = (weiAmount: string): string =>
+export const convertEtherToEuro = (etherAmount: string): string =>
   new Intl.NumberFormat('de-DE', {
     style: 'currency',
     currency: 'EUR',
-  }).format(convertWeiToEther(weiAmount) * USD_TO_EURO_RATE);
+  }).format((Number(etherAmount) / USD_TO_ETHER_RATE) * USD_TO_EURO_RATE);
 
 /**
- * @description convert wei to Kenya shillings
- * @param weiAmount
+ * @description convert ether to Kenya shillings
+ * @param etherAmount
  * @return {string} amount in KES
  */
-export const convertWeiToKES = (weiAmount: string): string =>
+export const convertEtherToKES = (etherAmount: string): string =>
   new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'KES',
-  }).format(convertWeiToEther(weiAmount) * USD_TO_KES_RATE);
+  }).format((Number(etherAmount) / USD_TO_ETHER_RATE) * USD_TO_KES_RATE);

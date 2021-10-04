@@ -22,6 +22,7 @@ module.exports = {
     'object-curly-newline': 'off',
     'import/prefer-default-export': 'off',
     'implicit-arrow-linebreak': 'off',
+    'no-nested-ternary': 'off',
   },
   ignorePatterns: [
     'reportWebVitals.ts',

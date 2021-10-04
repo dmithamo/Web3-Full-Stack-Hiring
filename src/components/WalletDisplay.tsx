@@ -2,12 +2,13 @@ import React from 'react';
 import { Currency, Wallet } from '../utils/reusedTypes';
 import { useGetBalance } from '../utils/web3-client';
 import {
-  convertWeiToEuro,
-  convertWeiToGBP,
-  convertWeiToKES,
-  convertWeiToUSD,
+  convertEtherToEuro,
+  convertEtherToGBP,
+  convertEtherToKES,
+  convertEtherToUSD,
 } from '../utils/formatNumbers';
 import {
+  USD_TO_ETHER_RATE,
   USD_TO_EURO_RATE,
   USD_TO_GBP_RATE,
   USD_TO_KES_RATE,
@@ -31,38 +32,38 @@ const WalletDisplay: React.FC<Props> = ({
   const convertToTargetCurrency = (): string => {
     switch (displayCurrency) {
       case 'USD':
-        return convertWeiToUSD(balance);
+        return convertEtherToUSD(balance);
 
       case 'GBP':
-        return convertWeiToGBP(balance);
+        return convertEtherToGBP(balance);
 
       case 'EUR':
-        return convertWeiToEuro(balance);
+        return convertEtherToEuro(balance);
 
       case 'KES':
-        return convertWeiToKES(balance);
+        return convertEtherToKES(balance);
 
       default:
-        return convertWeiToUSD(balance);
+        return convertEtherToUSD(balance);
     }
   };
 
   const getConversionRate = (): number => {
     switch (displayCurrency) {
       case 'USD':
-        return 1;
+        return USD_TO_ETHER_RATE;
 
       case 'EUR':
-        return USD_TO_EURO_RATE;
+        return USD_TO_ETHER_RATE * USD_TO_EURO_RATE;
 
       case 'GBP':
-        return USD_TO_GBP_RATE;
+        return USD_TO_ETHER_RATE * USD_TO_GBP_RATE;
 
       case 'KES':
-        return USD_TO_KES_RATE;
+        return USD_TO_ETHER_RATE * USD_TO_KES_RATE;
 
       default:
-        return 1;
+        return USD_TO_ETHER_RATE;
     }
   };
 

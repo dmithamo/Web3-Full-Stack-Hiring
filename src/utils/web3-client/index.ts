@@ -47,6 +47,16 @@ export const useGetBalance = (
     }
   };
 
+  const getDecimalsInContract = (): '18' | '6' => {
+    switch (walletName) {
+      case 'USDC':
+        return '6';
+
+      default:
+        return '18';
+    }
+  };
+
   useEffect(() => {
     setIsFetching(true);
 
@@ -63,7 +73,8 @@ export const useGetBalance = (
         .methods.balanceOf(address)
         .call()
         .then((bal: any) => {
-          setBalance(bal);
+          // save the balance as Ether
+          setBalance(convertWeiToEther(bal, getDecimalsInContract()));
         })
         .finally(() => setIsFetching(false));
     } catch (err: any) {
@@ -81,7 +92,24 @@ export const useGetBalance = (
 /**
  *@description Convert wei to ether
  * */
-export const convertWeiToEther = (weiAmount: string): number =>
-  Number(web3Client.utils.fromWei(weiAmount));
+export const convertWeiToEther = (
+  weiAmount: string,
+  decimals: '18' | '6',
+): string => {
+  switch (decimals) {
+    case '6':
+      return web3Client.utils.fromWei(weiAmount, 'mwei'); // rebase as 18 decimals
+
+    default:
+      return web3Client.utils.fromWei(weiAmount); // assume decimals is default === '18'
+  }
+};
+
+/**
+ * @description Catch invalid address errors early
+ * @param {string} address
+ */
+export const isValidAddress = (address: string) =>
+  web3Client.utils.isAddress(address);
 
 export default web3Client;
