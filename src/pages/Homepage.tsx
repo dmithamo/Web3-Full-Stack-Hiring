@@ -22,10 +22,15 @@ const Homepage: React.FC = () => {
 
       <>
         {!query || !isValidAddress(query) ? (
-          <p className="text-sm pt-2 text-gray-500">
-            Enter a valid address and search to view the balance. Press `ESC` to
-            clear
-          </p>
+          <>
+            <p className="text-sm pt-2 text-gray-500">
+              Enter a valid address and search to view the balance. Press `ESC`
+              to clear
+            </p>
+            <p className="text-sm pt-2 text-gray-400">
+              e.g., 0x28c6c06298d514db089934071355e5743bf21d60
+            </p>
+          </>
         ) : (
           <></>
         )}
