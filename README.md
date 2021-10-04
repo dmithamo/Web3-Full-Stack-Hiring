@@ -1,5 +1,10 @@
 # Web3-Full-Stack-Hiring
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d588151d-f08c-41f1-96d2-cb77c5685b6b/deploy-status)](https://app.netlify.com/sites/dmithamo-dai-search/deploys)
+
+[Live here](https://dmithamo-dai-search.netlify.app/)
+
+----
 Hello! If you're reading this, you applied to a Full Stack Engineering role at Syndicate. This is Syndicate's hiring test for Full Stack engineers. (Note: If you have not applied but stumbled across this repository somehow, you are welcome to check out our [job postings](https://www.notion.so/syndicateprotocol/Full-Stack-Software-Engineer-db5887b717b94d8e8eb80748ae9b9d97).)
 
 When you fork this repository, you should make your fork **private** and share it with [wpapper](https://github.com/wpapper) on Github with an admin role. By forking this repository, you agree to keep the MIT License intact and assign the MIT License to your fork as well.
