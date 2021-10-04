@@ -95,7 +95,7 @@ const WalletDisplay: React.FC<Props> = ({
                 {convertToTargetCurrency()}
               </span>
               <span className="uppercase text-sm text-gray-500 opacity-75 pt-1 pb-4">
-                {`balance (${getConversionRate()} ${displayCurrency} = 1 Ether)`}
+                {`balance (${getConversionRate()} ${displayCurrency} = 1 DAI)`}
               </span>
             </div>
           </div>
