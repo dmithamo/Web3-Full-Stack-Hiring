@@ -1,19 +1,19 @@
 import React from 'react';
-import { Currency, Wallet } from '../utils/reusedTypes';
-import { useGetBalance } from '../utils/web3-client';
-import {
-  convertEtherToEuro,
-  convertEtherToGBP,
-  convertEtherToKES,
-  convertEtherToUSD,
-} from '../utils/formatNumbers';
 import {
   USD_TO_ETHER_RATE,
   USD_TO_EURO_RATE,
   USD_TO_GBP_RATE,
   USD_TO_KES_RATE,
 } from '../utils/constants';
+import {
+  convertEtherToEuro,
+  convertEtherToGBP,
+  convertEtherToKES,
+  convertEtherToUSD,
+} from '../utils/formatNumbers';
 import { getWalletIcon } from '../utils/helpers';
+import { Currency, Wallet } from '../utils/reusedTypes';
+import { useGetBalance } from '../utils/web3-client';
 
 type Props = {
   walletName: Wallet;
@@ -81,7 +81,7 @@ const WalletDisplay: React.FC<Props> = ({
         <p className="font-thin text-sm text-red-500">{error}</p>
       ) : (
         <>
-          <div className="flex justify-between align-middle">
+          <div className="flex justify-between items-center">
             <div className="flex flex-col">
               <span className="capitalize font-bold text-2xl pt-4">
                 {walletLabel}
@@ -90,14 +90,22 @@ const WalletDisplay: React.FC<Props> = ({
                 {walletName}
               </span>
             </div>
-            <div className="flex flex-col">
-              <span className="capitalize font-bold text-2xl pt-4">
-                {convertToTargetCurrency()}
-              </span>
-              <span className="uppercase text-sm text-gray-500 opacity-75 pt-1 pb-4">
-                {`balance (${getConversionRate()} ${displayCurrency} = 1 DAI)`}
-              </span>
-            </div>
+
+            {balance ? (
+              <div className="flex flex-col">
+                <span className="capitalize font-bold text-2xl pt-4">
+                  {convertToTargetCurrency()}
+                </span>
+
+                <span className="uppercase text-sm text-gray-500 opacity-75 pt-1 pb-4">
+                  {`balance (${getConversionRate()} ${displayCurrency} = 1 DAI)`}
+                </span>
+              </div>
+            ) : (
+              <div>
+                <span className="text-gray-400 font-bold">Loading ...</span>
+              </div>
+            )}
           </div>
         </>
       )}

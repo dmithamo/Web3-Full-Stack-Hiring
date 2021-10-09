@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Searchbar from '../components/Searchbar';
 import SelectDropdown from '../components/SelectDropdown';
-import { Currency } from '../utils/reusedTypes';
 import WalletDisplay from '../components/WalletDisplay';
+import { Currency } from '../utils/reusedTypes';
 import { isValidAddress } from '../utils/web3-client';
 
 const Homepage: React.FC = () => {

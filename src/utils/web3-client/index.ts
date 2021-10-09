@@ -1,27 +1,30 @@
-import Web3 from 'web3';
 import { useEffect, useState } from 'react';
+import Web3 from 'web3';
 import daiABI from '../reference/abi/dai';
 import er20ABI from '../reference/abi/erc20';
 import { Wallet } from '../reusedTypes';
 
 // initialize a We3JS client
-const web3Client = new Web3(Web3.givenProvider || 'ws://localhost:8545');
+export const initializeClient = (): Web3 | null => {
+  const PROVIDER_API_URL = process.env.REACT_APP_PROVIDER_URL_WSS;
+  const web3Client = new Web3(PROVIDER_API_URL || '');
 
-// setup daicontract
-const daiContractAddress = '0x6b175474e89094c44da98b954eedeac495271d0f';
-const daiContract = new web3Client.eth.Contract(
-  // @ts-ignore
-  daiABI,
-  daiContractAddress,
-);
+  return web3Client;
+};
 
-// setup usdc contract
-const usdcContractAddress = '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48';
-const usdcContract = new web3Client.eth.Contract(
-  // @ts-ignore
-  er20ABI,
-  usdcContractAddress,
-);
+const setupDAIContract = (client: Web3): any =>
+  new client.eth.Contract(
+    // @ts-ignore
+    daiABI,
+    '0x6b175474e89094c44da98b954eedeac495271d0f', // dai contract address
+  );
+
+const setupUSDCContract = (client: Web3): any =>
+  new client.eth.Contract(
+    // @ts-ignore
+    er20ABI,
+    '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', // usdc contract address
+  );
 
 /**
  * @description abstract the logic for querying balance into a custom hook
@@ -37,13 +40,23 @@ export const useGetBalance = (
   const [error, setError] = useState<false | string>(false);
   const [balance, setBalance] = useState<string>('');
 
+  const web3Client = initializeClient();
+
+  if (!web3Client) {
+    return {
+      error: 'Unable to initialize web3 client',
+      isFetching: false,
+      balance: '0',
+    };
+  }
+
   const getContract = () => {
     switch (walletName) {
       case 'USDC':
-        return usdcContract;
+        return setupUSDCContract(web3Client);
 
       default:
-        return daiContract;
+        return setupDAIContract(web3Client);
     }
   };
 
@@ -62,7 +75,7 @@ export const useGetBalance = (
 
     // prevent `invalid address` error before user types address
     if (!address) {
-      setBalance('');
+      setBalance('0');
       setError(false);
       setIsFetching(false);
       return;
@@ -74,9 +87,10 @@ export const useGetBalance = (
         .call()
         .then((bal: any) => {
           // save the balance as Ether
-          setBalance(convertWeiToEther(bal, getDecimalsInContract()));
-        })
-        .finally(() => setIsFetching(false));
+          setBalance(
+            convertWeiToEther(bal, getDecimalsInContract(), web3Client),
+          );
+        });
     } catch (err: any) {
       setError(
         (err.message as string) || 'Unable to fetch balance from this address',
@@ -95,6 +109,7 @@ export const useGetBalance = (
 export const convertWeiToEther = (
   weiAmount: string,
   decimals: '18' | '6',
+  web3Client: Web3,
 ): string => {
   switch (decimals) {
     case '6':
@@ -109,7 +124,6 @@ export const convertWeiToEther = (
  * @description Catch invalid address errors early
  * @param {string} address
  */
+const web3Client = initializeClient();
 export const isValidAddress = (address: string) =>
-  web3Client.utils.isAddress(address);
-
-export default web3Client;
+  (web3Client as Web3).utils.isAddress(address);
