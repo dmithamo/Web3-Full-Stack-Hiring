@@ -42,9 +42,9 @@ export const useGetBalance = (
 
   const web3Client = initializeClient();
 
-  if (!web3Client) {
+  if (!web3Client?.currentProvider) {
     return {
-      error: 'Unable to initialize web3 client',
+      error: 'Unable to connect to provider',
       isFetching: false,
       balance: '0',
     };

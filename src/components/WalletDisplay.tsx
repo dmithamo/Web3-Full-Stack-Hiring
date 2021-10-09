@@ -78,7 +78,7 @@ const WalletDisplay: React.FC<Props> = ({
       {isFetching ? <p className="text-gray-500">Loading ...</p> : <></>}
 
       {error ? (
-        <p className="font-thin text-sm text-red-500">{error}</p>
+        <p className="font-thin text-sm text-red-500 pb-10 pt-10">{error}</p>
       ) : (
         <>
           <div className="flex justify-between items-center">

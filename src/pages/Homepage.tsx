@@ -39,7 +39,7 @@ const Homepage: React.FC = () => {
       {query ? (
         isValidAddress(query) ? (
           <div className="mt-10">
-            <div className="flex justify-between align-middle pb-10 pb-5 pt-5">
+            <div className="flex justify-between align-middle pb-5 pt-5">
               <p className="uppercase font-bold text-gray-700 text-2xl">
                 Wallets
               </p>
