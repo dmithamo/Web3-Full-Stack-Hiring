@@ -113,7 +113,7 @@ export const convertWeiToEther = (
 ): string => {
   switch (decimals) {
     case '6':
-      return web3Client.utils.fromWei(weiAmount, 'mwei'); // rebase as 18 decimals
+      return web3Client.utils.fromWei(weiAmount, 'mwei');
 
     default:
       return web3Client.utils.fromWei(weiAmount); // assume decimals is default === '18'
